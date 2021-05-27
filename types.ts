@@ -43,10 +43,25 @@ class Car {
 
 let car: Car = new Car();
 
+//Objects
+
 //Object literal
 let point: {x: number; y: number} = {
     x:10,
     y:20
+}
+
+//Object destructuring
+const profile:{name:string,age:number,coords:{lat:number,lng:number},setAge:(age:number)=>void} = {
+    name: 'alex',
+    age: 20,
+    coords: {
+        lat: 0,
+        lng: 15
+    },
+    setAge(age:number):void {
+        this.age = age
+    }
 }
 
 //function
@@ -61,6 +76,28 @@ const multiply = (i:number,j:number): number =>{
 }
 //a function variable
 let fVariable: (a:number,b:number) => number;
+
+//function declaration
+function add(a:number, b:number):number {
+    return a + b
+}
+
+//a function that never returns
+const throwError = (message:string):never =>{
+    throw new Error(message)
+}
+
+//a function that takes an object as an argument
+const logWeather = (forecast: {date:Date, weather:string}):void =>{
+    console.log(forecast.date)
+    console.log(forecast.weather)
+}
+
+//Destructuring and object inside a function
+const theWeather = ({date,weather}: {date:Date, weather:string}):void =>{
+    console.log(date)
+    console.log(weather)
+}
 
 //When to use annotation: When a function returns the 'any' type
 const json = '{x:10,y:20}' //Type string is inferred, as the variable is declared and initialized on the same line.

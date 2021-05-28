@@ -27,6 +27,7 @@ let nothingMuch: null = null;
 let nothing: undefined = undefined
 
 //object types
+
 //Date object
 const today: Date = new Date();
 
@@ -34,7 +35,30 @@ const today: Date = new Date();
 let colors: string[] = ['red','blue','green']
 let nyNumbers: number[] = [1,2,3,4]
 let truths: boolean[] = [true,true,false]
-let mixedArray: any[] = [1,'string']
+let mixedArray: (string | number)[] = [1,'string']
+
+//Array methods
+colors.map((color:string):string =>{
+    return color
+})
+
+//nested Arrays
+let nested: string[][] = [['string','string'],['string','string']]
+
+//tuples
+const pepsi:[string,boolean,number] = ['brown',true,40] //js does not have tuples, but typescript can make turn an array into a tuple
+
+//using type to create a tuple
+type Drink = [string,boolean,number]
+const coke:Drink = ["black",true,40]
+const tea:Drink = ["brown",false,10]
+
+//Interfaces
+const oldCivic = {
+    name: 'civic',
+    year: 2000,
+    broken: true
+}
 
 //Classes
 class Car {
@@ -63,6 +87,9 @@ const profile:{name:string,age:number,coords:{lat:number,lng:number},setAge:(age
         this.age = age
     }
 }
+
+const {age}: { age:number } = profile
+const {coords:{lat,lng}}:{coords:{lat:number,lng:number}} = profile
 
 //function
 //the ugly way

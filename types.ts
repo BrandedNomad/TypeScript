@@ -54,18 +54,45 @@ const coke:Drink = ["black",true,40]
 const tea:Drink = ["brown",false,10]
 
 //Interfaces
-const oldCivic = {
+interface Vehicle {
+    name:string,
+    year:number,
+    broken:boolean
+}
+
+const oldCivic: Vehicle = {
     name: 'civic',
-    year: 2000,
+    year: 1989,
     broken: true
 }
 
-//Classes
+const printVehicle = (vehicle:Vehicle):void =>{
+    console.log(vehicle.name)
+}
+
+////Classes
 class Car {
+
+    private drive(): void { //Private functions can only be accessed by other methods inside of the class inside of
+        console.log('vroom')//private methods cannot be accessed by subclasses and cannot be called by an instance
+    }
+
+    protected honk(): void { //Protected methods cannot be accessed by other functions outside of the class
+        console.log('honk') // Protected methods can be accessed by a subclass, but not called by an instance
+    }
+
+    public startDriving(): void {//Public methods are the default, and is accessible by everyone
+        this.drive() //calls the private function drive()
+
+    }
 
 }
 
 let car: Car = new Car();
+
+
+
+
 
 //Objects
 
